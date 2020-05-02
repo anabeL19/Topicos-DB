@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Template.html</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+<br>
+<div>
+    <form action="/lemma_stems" method="POST">
+      <p><label for="fname">Contenido:</label></p>  
+      <p><textarea id="plaintext" type="text" placeholder="Ingresa" name="plaintext"></textarea></p>
+      <p><input type="submit" value="Lemma" name="opcion">   <input type="submit" value="Stems" name="opcion"></p>   
+      <p><label for="fname">Procesado:</label></p>   
+      <textarea placeholder="..." name="contenido">{{content}}</textarea>
+    </form>
+<div>
+</body>
+</html>
