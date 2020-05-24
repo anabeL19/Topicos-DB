@@ -1,0 +1,52 @@
+html,body {
+    height:100%;
+    width:100%;
+    margin:0;
+}
+
+div {
+    border-radius: 5px;
+    padding: 20px;
+}
+
+form {
+    margin: 8px 200px;
+}
+
+input[type=text]{
+    width: 100%;
+    background-color: #EEEEEE;
+    color: black;
+    padding: 15px;
+    cursor: pointer;
+    box-sizing: border-box;
+    font-size: 14px;
+    resize: none;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px 19px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #EEEEEE;
+    font-size: 14px;
+    resize: none;
+  }
+
+input[type=button], input[type=submit], input[type=reset] {
+    width: 49%;
+    background-color:  #452668;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    align-content: right;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #5E5979;
+}
