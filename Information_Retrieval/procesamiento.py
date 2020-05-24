@@ -78,14 +78,14 @@ def fileFactorize():
     
     vector.clear()
 
-def removeStopWords(filename):
+def removeStopWords():
     fileRead= open('Data/'+filename,'r')
     lines= fileRead.readlines()
     fileRead.close()
 
     alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
     stop_words = set(stopwords.words('english')) 
-    fileWrite= open('Data/Factorization/2gm-0031','w')
+    fileWrite= open('Data/Factorization/'+filename,'w')
     for l in lines:
         list=l.split()
         if list[0] not in alphabet and list[1] not in alphabet:
@@ -100,19 +100,17 @@ filenames = ['2gm-0000','2gm-0001','2gm-0002','2gm-0003','2gm-0004','2gm-0005','
             '2gm-0020','2gm-0021','2gm-0022','2gm-0023','2gm-0024','2gm-0025','2gm-0026','2gm-0027','2gm-0028','2gm-0029',
             '2gm-0030','2gm-0031']
 
-# filename = 'test'
-# filename = '2gm-0031'
-removeStopWords(filename)
-# for filen in filenames:
-#     filename = filen
-    
-#     print('Init ' + filename)
-#     readFile()
-#     print("End English")
-#     fileLemmatization()
-#     print("End Lemmatization")
-#     fileFactorize()
-#     print("End Factorization\n")
 
-#     removeStopWords()
-#     print("End remove Stop Words\n")  
+for filen in filenames:
+    filename = filen
+    
+    print('Init ' + filename)
+    readFile()
+    print("End English")
+    fileLemmatization()
+    print("End Lemmatization")
+    fileFactorize()
+    print("End Factorization\n")
+
+    removeStopWords()
+    print("End remove Stop Words\n")  
