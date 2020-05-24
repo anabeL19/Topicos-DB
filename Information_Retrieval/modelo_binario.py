@@ -19,7 +19,6 @@ def concurrency(word):
             ranking.append(tup)
             # ranking.append(intersection.sum() / union.sum() * 100)
             ranking.sort(reverse=True)
-    # print('sum ',ranking)
     return ranking
 
 def getData():
@@ -31,8 +30,8 @@ def getData():
         print(' Archivo :  ', filename[i])
         fileRead= open('Data/Factorization/'+filename[i],'r')
         lines= fileRead.readlines()
-        divide = {}
-        print(divide)
+        # divide = {}
+        # print(divide)
         for l in lines:
             token = f.tokenize(l)
 
@@ -65,12 +64,12 @@ def show(word):
     end = time()
     # end = timer()
     # print(ranking[:10])
-    for i in range(0,10):
+    for i in range(0,100):
         print(ranking[i])
 
     print(end - start)
 
-getData()
+# getData()
 word = "competition"
 # word = "watt"
 show(word)
