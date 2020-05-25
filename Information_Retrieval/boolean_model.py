@@ -7,21 +7,23 @@ from time import time
 # searches for the word entered
 def find_word(word):
     flag = False
-    word_bool = 0
+    w_ids = 0
+    word = f.lemmatization(word)
     with open('Data/information.json', 'r') as info:
         for obj in info:
             data = json.loads(str(obj))
-            for key in data.keys():
+            for key, value in data.items():
                 if word == key:
-                    word_bool = f.createVector(data[word])
+                    # values that contain that search word
+                    w_ids = value.values()
                     flag = True
-    return word_bool, flag
+    return w_ids, flag
 
 # semantic similarity
 def similarity(word):
     ranking = []
 
-    word_bool, flag = find_word(word)
+    word_ids, flag = find_word(word)
     if flag == False:
         return False
 
@@ -31,11 +33,11 @@ def similarity(word):
             # create boolean array with lemmas to compare
             for key, value in data.items():
                 if word != key:
-                    data_bool = f.createVector(value)
+                    all_ids = value.values()
                     # Jaccard method
-                    intersection = word_bool & data_bool
-                    union = word_bool | data_bool
-                    tup = (intersection.sum() / union.sum() * 100, key)
+                    intersection = len(set(word_ids).intersection(set(all_ids)))
+                    union = len(set(word_ids)) + len(set(all_ids)) - intersection
+                    tup = (intersection / union * 100, key)
                     ranking.append(tup)
         ranking.sort(reverse=True)   
     return ranking
@@ -87,14 +89,17 @@ def show(word):
         end = time()
         # end = timer()
         # print(ranking[:10])
-        for i in range(0,10):
-            print(ranking[i])
-
-        print(end - start)
+        rank = []
+        for i in range(0,100):
+            rank.append(ranking[i])
+            # print(ranking[i])
+        t = end - start
+        print(t)
+        return rank
     else: 
-        print("Search other word")
+        return("Search other word")
 
-getData()
+# getData()
 word = "competition"
 # word = "watt"
-show(word)
+# show(word)
