@@ -1,3 +1,4 @@
+from nltk.stem import WordNetLemmatizer 
 import numpy as np
 
 # files to work - corpus of google
@@ -17,11 +18,21 @@ def tokenize(str_line):
     list_token = str_line.split()
     return list_token
 
-# create the boolean array having the positions
+def lemmatization(word):
+    lemma=WordNetLemmatizer()
+    
+    lw = lemma.lemmatize(word,'n')
+    if lw==word:
+        lw = lemma.lemmatize(word,'v')
+    if lw==word:
+        lw=lemma.lemmatize(word,'a')
+    return lw
+
+# discard alternative: decreate the boolean array having the positions
 def createVector(d):
-    vbool = np.zeros(56221482, dtype = bool) #56221481
+    # vbool = np.zeros(56221482, dtype = bool) #56221481
     # vbool = np.zeros(7018900, dtype = bool)
-    # vbool = np.zeros(400, dtype = bool)
+    vbool = np.zeros(400, dtype = bool)
     for v in d.values():
         vbool[v] = 1
     return vbool
