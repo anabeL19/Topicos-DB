@@ -18,7 +18,7 @@ def tokenize(str_line):
 def createVector(d):
     vbool = np.zeros(56221482, dtype = bool) #56221481
     # vbool = np.zeros(7018900, dtype = bool)
-    vbool = np.zeros(400, dtype = bool)
+    # vbool = np.zeros(400, dtype = bool)
     for v in d.values():
         vbool[v] = 1
     return vbool
