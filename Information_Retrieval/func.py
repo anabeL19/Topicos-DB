@@ -1,5 +1,6 @@
 import numpy as np
 
+# files to work - corpus of google
 def getFiles():
     files = ["2gm-0000", "2gm-0001", "2gm-0002", "2gm-0003", "2gm-0004", "2gm-0005",
              "2gm-0006", "2gm-0007", "2gm-0008", "2gm-0009", "2gm-0010", "2gm-0011",
@@ -11,10 +12,12 @@ def getFiles():
     # files = ["test", "test1"]
     return files
 
+# divide each line of a file
 def tokenize(str_line):
     list_token = str_line.split()
     return list_token
 
+# create the boolean array having the positions
 def createVector(d):
     vbool = np.zeros(56221482, dtype = bool) #56221481
     # vbool = np.zeros(7018900, dtype = bool)
