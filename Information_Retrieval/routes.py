@@ -1,19 +1,17 @@
 from flask import Flask,render_template,request
-from modelo_binario import *
+from boolean_model import *
 
 
 app = Flask(__name__)
 
 @app.route('/info_recover')
-def index_lem_stemm():
+def index_lem_recover():
     return render_template("info_recover.html")
 
 @app.route('/info_recover',methods=['POST'])
-def lema_stemm():
+def info_recover():
     content= request.form["plaintext"]
     
-    if(request.form["opcion"]=="Search"):
-        return render_template("info_recover.html", content=row_word(content),inicial=content)
+    if(request.form["option"]=="Search"):
+        return render_template("info_recover.html", content=show(content),inicial=content)
         
-    # else:
-    #     return render_template("info_recover.html",content=Stemming(content),inicial=content)
