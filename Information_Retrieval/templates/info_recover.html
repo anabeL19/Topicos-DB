@@ -4,18 +4,21 @@
 <title>Template.html</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-
+ 
 <body>
 <br>
 <div>
-    <form action="/info_recover" method="POST">
-      <p><label for="fname">Contenido:</label></p>  
-      <p><textarea id="plaintext" type="text" placeholder="Ingresa" name="plaintext"></textarea></p>
-      <p><input type="submit" value="Search" name="opcion">   
-        <!-- <input type="submit" value="Lemma" name="opcion"> -->
+    <form action="/info_recover" method="POST">  
+      <p><textarea id="plaintext" type="text" placeholder="Search" name="plaintext"></textarea>
+         <input type="submit" value="Search" name="option">
       </p>   
-      <p><label for="fname">Procesado:</label></p>   
-      <textarea placeholder="..." name="contenido">{{content}}</textarea>
+        <!-- <input type="submit" value="Lemma" name="opcion"> --> 
+      <p><label for="fname">Results:</label></p>   
+      <textarea placeholder="..." name="contenido">
+        {% for i in content %}
+          {{ i }} 
+        {% endfor %}
+      </textarea>
     </form>
 <div>
 </body>
